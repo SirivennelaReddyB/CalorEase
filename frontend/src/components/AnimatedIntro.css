@@ -1,0 +1,301 @@
+.intro-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stage-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Celestial bodies (sun/moon) */
+.celestial-body {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.celestial-body.sunrise,
+.celestial-body.morning,
+.celestial-body.afternoon {
+  background: radial-gradient(circle, #ffeb3b, #ff9800);
+  box-shadow: 0 0 30px rgba(255, 235, 59, 0.8);
+}
+
+.celestial-body.evening,
+.celestial-body.sunset {
+  background: radial-gradient(circle, #ff5722, #ff9800);
+  box-shadow: 0 0 25px rgba(255, 87, 34, 0.7);
+}
+
+/* Clouds */
+.clouds-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+}
+
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+  opacity: 0.8;
+  animation: float 6s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 100px;
+}
+
+.cloud-1 {
+  width: 100px;
+  height: 40px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.cloud-1::before {
+  top: -50%;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.cloud-1::after {
+  top: -45%;
+  left: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+.cloud-2 {
+  width: 80px;
+  height: 35px;
+  top: 30%;
+  left: 40%;
+  animation-delay: 2s;
+}
+
+.cloud-2::before {
+  top: -45%;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.cloud-2::after {
+  top: -40%;
+  left: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.cloud-3 {
+  width: 120px;
+  height: 45px;
+  top: 15%;
+  left: 70%;
+  animation-delay: 4s;
+}
+
+.cloud-3::before {
+  top: -50%;
+  left: 15px;
+  width: 60px;
+  height: 60px;
+}
+
+.cloud-3::after {
+  top: -45%;
+  left: 70px;
+  width: 70px;
+  height: 70px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Rain */
+.rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(to bottom, transparent, #4fc3f7);
+  border-radius: 0 0 2px 2px;
+  animation: rain-fall 1s linear infinite;
+}
+
+@keyframes rain-fall {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Flowers */
+.flowers-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 1;
+}
+
+.flower {
+  position: absolute;
+  bottom: 20px;
+  transform-origin: bottom center;
+  transition: all 0.5s ease;
+}
+
+.flower-petals {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+.petal {
+  position: absolute;
+  width: 8px;
+  height: 15px;
+  background: radial-gradient(ellipse, #ff69b4, #ff1493);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  margin-left: -4px;
+  margin-top: -15px;
+}
+
+.flower-center {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffeb3b, #ff9800);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.flower-stem {
+  position: absolute;
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(to bottom, #4caf50, #2e7d32);
+  border-radius: 2px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flower.wilting .petal {
+  background: radial-gradient(ellipse, #8d6e63, #5d4037);
+}
+
+.flower.wilting .flower-center {
+  background: radial-gradient(circle, #8d6e63, #5d4037);
+}
+
+.floating-petal {
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  background: radial-gradient(ellipse, #ff69b4, #ff1493);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  pointer-events: none;
+}
+
+/* Stage title */
+.stage-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.stage-title h1 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.stage-title p {
+  font-size: 1.5rem;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .stage-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .stage-title p {
+    font-size: 1.2rem;
+  }
+  
+  .celestial-body {
+    width: 60px;
+    height: 60px;
+    top: 8%;
+    right: 10%;
+  }
+  
+  .cloud-1, .cloud-2, .cloud-3 {
+    transform: scale(0.8);
+  }
+}
